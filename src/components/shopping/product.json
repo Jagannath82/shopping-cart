@@ -1,0 +1,38 @@
+[
+    {
+        "productId":1,
+        "imageName": "img1.png",
+        "productName": "Foodism",
+        "price": "19"
+    },
+    {
+        "productId":2,
+        "imageName": "img-2.png",
+        "productName": "Foodism",
+        "price": "20"
+    },
+    {
+        "productId":3,
+        "imageName": "img-3.png",
+        "productName": "Foodism",
+        "price": "21"
+    },
+    {
+        "productId":4,
+        "imageName": "img-4.png",
+        "productName": "Foodism",
+        "price": "22"
+    },
+    {
+        "productId":5,
+        "imageName": "img-5.png",
+        "productName": "Foodism",
+        "price": "23"
+    },
+    {
+        "productId":6,
+        "imageName": "img-6.png",
+        "productName": "Foodism",
+        "price": "24"
+    }
+]
