@@ -8,9 +8,12 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+
 import Home from './components/home.jsx';
 import Blog from './components/blog.jsx';
 import ContactUs from './components/contactUs';
+import AddProduct from './components/product/AddProduct.jsx';
+import EmployeeSearch from './components/pages/EmployeeSearch.jsx';
 
 function App() {
   return (
@@ -55,8 +58,14 @@ function App() {
           <Route
             exact
             path="/contact"
-            element={<ContactUs />}
+            element={<EmployeeSearch />}
           ></Route>
+          <Route
+            exact
+            path="/addProduct"
+            element={<AddProduct />}
+          ></Route>
+
         </Routes>
       </div>
     </Router>

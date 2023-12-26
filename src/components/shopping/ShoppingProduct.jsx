@@ -19,6 +19,8 @@ export default function ShoppingProduct({ imgName, productName, price, productId
         }
     }
 
+    
+
     return (<><div class="col-md-4">
         <div class="hover01 column">
             <figure><img src={imgName} alt="imageOne" /></figure>

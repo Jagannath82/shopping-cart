@@ -1,15 +1,23 @@
-import { Component } from "react";
-import img1 from './images/img1.png'
-import img2 from './images/img-2.png'
-import img3 from './images/img-3.png'
-import img4 from './images/img-4.png'
-import img5 from './images/img-5.png'
-import img6 from './images/img-6.png'
 import ShoppingProduct from "./ShoppingProduct";
-import products from './product.json'
-
+//import products from './product.json'
+import { useQuery } from 'react-query';
+import { useEffect, useState } from "react";
+import { fetchAllProducts } from "../../client/ProductClient";
 
 export default function ShoppingDisplay() {
+    const {data : prod, isLoading, error} = useQuery("products", fetchAllProducts);
+    const [products, setProducts] = useState([]);
+    
+    useEffect(()=>{
+        if(!isLoading){
+            setProducts(prod.data);
+        }
+    },[isLoading]); 
+
+    if (isLoading) return <div>Fetching posts...</div>;
+    if (error) return <div>An error occurred: {error.message}</div>;
+    
+    
     return (<>
         {console.log("product::" +products)}
         <div class="container-fluid">
@@ -24,11 +32,11 @@ export default function ShoppingDisplay() {
                         </div>
                         <div class="courses_section_2">
                             <div class="row">
-                                {products.map(product => 
-                                   (<ShoppingProduct imgName={require('./images/'+product.imageName)} 
+                                {products && products.map(product => 
+                                   (<ShoppingProduct imgName={require('./images/'+product.imageUrl)} 
                                     productName={product.productName} 
                                     price={product.price} 
-                                    productId={product.productId}/>)
+                                    productId={product.id}/>)
                                 )}
                             </div>
                         </div>
