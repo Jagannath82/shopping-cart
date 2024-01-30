@@ -30,6 +30,9 @@ export default function LayoutComponent() {
                                     <li class="nav-item">
                                         <NavLink className="nav-link" to="/addProduct">Add Product</NavLink>
                                     </li>
+                                    <li class="nav-item">
+                                        <NavLink className="nav-link" to="/blog">Blog</NavLink>
+                                    </li>
                                 </ul>
                             </div>
                         </nav>

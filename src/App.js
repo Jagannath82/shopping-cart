@@ -12,6 +12,7 @@ import Home from './components/home.jsx';
 import AddProduct from './components/product/AddProduct.jsx';
 import SplashImage from './components/splash-image/SplashImage.jsx';
 import LayoutComponent from './LayoutComponent.jsx';
+import Blog, { loadPost } from './components/blog.jsx';
 
 const router = createBrowserRouter(
   [
@@ -34,6 +35,11 @@ const router = createBrowserRouter(
         {
           path: "addProduct",
           element: <AddProduct />
+        },
+        {
+          path: "blog",
+          element: <Blog />,
+          loader: loadPost
         }
       ]
     }
