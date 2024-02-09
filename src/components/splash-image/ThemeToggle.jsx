@@ -8,11 +8,11 @@ export default function ThemeToggle() {
   return (
     
     <section className='toggle-container'>
-        {isDark ?
+        {/* {isDark ?
             (<button className='btn btn-primary' onClick={toggleTheme}>Toggle Theme</button>) 
         : 
             (<button className='btn btn-success' onClick={toggleTheme}>Toggle Theme</button>)
-        }
+        } */}
     </section>
 )
 }

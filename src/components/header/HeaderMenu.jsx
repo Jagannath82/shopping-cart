@@ -32,6 +32,9 @@ export default function HeaderMenu() {
                             <li class="nav-item">
                                 <NavLink class="nav-link" to="/addProduct">Add Product</NavLink>
                             </li>
+                            <li class="nav-item">
+                                <NavLink class="nav-link" to="/addPost">Add Post</NavLink>
+                            </li>
                         </ul>
                         <form class="form-inline my-2 my-lg-0">
                             <div class="search_icon"><i class="fa fa-search" aria-hidden="true"></i></div>

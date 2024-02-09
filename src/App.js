@@ -1,7 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.css';
-import HeaderMenu from './components/header/HeaderMenu';
-import './css/style.css';
-import './css/responsive.css'
+import './App.css';
 import Shopping from './components/shopping/ShoppingDisplay.jsx';
 import {
   createBrowserRouter,
@@ -13,6 +10,10 @@ import AddProduct from './components/product/AddProduct.jsx';
 import SplashImage from './components/splash-image/SplashImage.jsx';
 import LayoutComponent from './LayoutComponent.jsx';
 import Blog, { loadPost } from './components/blog.jsx';
+import BlogPostDetails, { loadBlogPostDetails } from './components/blogPostDetails.jsx';
+import AddBlog from './components/AddBlog.jsx';
+import { action as addBlogPostAction} from './components/AddBlog.jsx'
+import Math from './Math.jsx';
 
 const router = createBrowserRouter(
   [
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
       element: <LayoutComponent />,
       children: [
         {
+          path: "index",
           index: true,
           element: < Home />
         },
@@ -39,7 +41,22 @@ const router = createBrowserRouter(
         {
           path: "blog",
           element: <Blog />,
-          loader: loadPost
+          loader: loadPost,
+          children:[{
+            path: ":id",
+            element: <BlogPostDetails/>,
+            loader: loadBlogPostDetails
+          }]
+          
+        },
+        {
+          path: "addPost",
+          element: <AddBlog />,
+          action: addBlogPostAction
+        },
+        {
+          path: "mathPuzzle",
+          element: <Math />
         }
       ]
     }

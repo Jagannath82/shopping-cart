@@ -55,7 +55,7 @@ export default function AddProduct() {
                         <input type="text" class="form-control" name="category" onChange={handleChange} />
                     </div>
                 </div>
-                <div class="row">
+                <div class="row .p-3">
                     <div class="col-sm-3 col-md-6">
                         <button class="btn btn-primary" onClick={handleSubmit}>Add Product</button>
                     </div>

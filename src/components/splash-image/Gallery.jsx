@@ -1,19 +1,49 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from './SplashContext'
-import books from './books.json'
 import { useQuery } from 'react-query';
 import axios from 'axios';
+import ImageGallery from "react-image-gallery";
+
+
 
 const url = 'https://api.unsplash.com/search/photos?client_id=keKLknlfPa4F7H1uNtbTfEmt3H16oSolyamyIjqyub4&query=';
 
+const defaultImages = [
+  {
+    original: "https://picsum.photos/id/1018/1000/600/",
+    thumbnail: "https://picsum.photos/id/1018/250/150/",
+  },
+  {
+    original: "https://picsum.photos/id/1015/1000/600/",
+    thumbnail: "https://picsum.photos/id/1015/250/150/",
+  },
+  {
+    original: "https://picsum.photos/id/1019/1000/600/",
+    thumbnail: "https://picsum.photos/id/1019/250/150/",
+  },
+];
 export default function Gallery(props) {
 
-  const {search} = useContext(GlobalContext);
+  const [images, setImages] = useState(defaultImages)
+  const { search } = useContext(GlobalContext);
 
   const response = useQuery(['unsplashImage', search], async () => {
     const result = await axios.get(`${url}$query=${search}`);
     return result.data;
   })
+
+  useEffect(() => {
+    if (response?.data?.results) {
+      let newImages = [];
+      response?.data?.results?.map((item) => {
+        newImages.push({
+          original: item?.urls?.full,
+          thumbnail: item?.urls?.thumb
+        })
+      });
+      setImages(newImages);
+    }
+  }, [response?.data?.results])
 
   if (response.isLoading) {
     return (<section className='image-container'>
@@ -27,41 +57,27 @@ export default function Gallery(props) {
     </section>)
   }
 
+
+
+
+
   return (
-    
-      <section className='image-container'>
-        <div className='row'>
+    <div>
+      {/* <div className='row'>
         {
 
           response?.data?.results?.map((item) => {
-            const url = item?.urls?.regular;
+            const url = item?.urls?.full;
             return (
               <div className="col-sm">
                 <img src={url} key={item?.id} alt={item?.alt_description} className='w-30 shadow-1-strong rounded mb-4' />
               </div>)
           })}
       
-      </div>
-      {/* <h2>
-        <div class="container">
-          {books.map(book => {
-            return (<div class="row border">
-              <div class="col-sm border">
-                {book.id}
-              </div>
-              <div class="col-sm border">
-                {book.Author}
-              </div>
-              <div class="col-sm border">
-                {book.Name}
-              </div>
-            </div>);
-          })}
-        </div>
+      </div> */}
 
+      <ImageGallery items={images} />;
 
-
-      </h2> */}
-    </section>
+    </div>
   )
 }

@@ -11,9 +11,8 @@ export default function SearchForm(props) {
 
   return (
     <section>
-      <h1 className='title'>Unsplash Images</h1>
       <form className='search-form' onSubmit={showImages}>
-        <input type="text" className='search-input' name='search'/>
+        <input type="text" className='search-input m-3' name='search'/>
         <button className='btn btn-primary pl-3'>Search</button>
       </form>
     </section>

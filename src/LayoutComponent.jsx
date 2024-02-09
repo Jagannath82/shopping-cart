@@ -11,7 +11,7 @@ export default function LayoutComponent() {
             <header>
                 <div class="header_section">
                     <div class="container-fluid">
-                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <nav class="navbar navbar-expand-lg navbar-light">
                             <a class="navbar-brand" href="index.html"><img src={logo} alt="logo" /></a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
@@ -32,6 +32,12 @@ export default function LayoutComponent() {
                                     </li>
                                     <li class="nav-item">
                                         <NavLink className="nav-link" to="/blog">Blog</NavLink>
+                                    </li>
+                                    <li class="nav-item">
+                                        <NavLink className="nav-link" to="/addPost">Add Post</NavLink>
+                                    </li>
+                                    <li class="nav-item">
+                                        <NavLink className="nav-link" to="/mathPuzzle">Math Puzzle</NavLink>
                                     </li>
                                 </ul>
                             </div>
